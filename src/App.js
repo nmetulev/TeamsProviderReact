@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Providers, TeamsProvider} from '@microsoft/mgt';
+
+Providers.globalProvider = new TeamsProvider({
+  clientId: 'a974dfa0-9f57-49b9-95db-90f04ce2111a',
+  authPopupUrl: '/auth'
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <mgt-login></mgt-login>
+      <mgt-person person-query="alex" show-name person-card="hover"></mgt-person>
+      <mgt-teams-channel-picker></mgt-teams-channel-picker>
     </div>
   );
 }

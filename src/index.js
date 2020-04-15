@@ -2,11 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Auth from './Auth';
 import * as serviceWorker from './serviceWorker';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <div>
+      <Switch>
+          <Route exact path="/">
+            <App />
+          </Route>
+          <Route path="/auth">
+            <Auth />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
